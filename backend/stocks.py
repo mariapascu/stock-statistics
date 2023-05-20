@@ -18,10 +18,10 @@ class StocksAPI:
         return stock_data
 
     def get_stock_cumulative_return(self, stock_symbol, timestamp_start, timestamp_end):
-        first_day_res = self.finnhub_client.stock_candles(stock_symbol, 'D', timestamp_start, timestamp_start)
-        last_day_res = self.finnhub_client.stock_candles(stock_symbol, 'D', timestamp_end, timestamp_end)
-        first_day_value = first_day_res['h'][0]
-        last_day_value = last_day_res['h'][0]
+        res = self.finnhub_client.stock_candles(stock_symbol, 'D', timestamp_start, timestamp_end)
+
+        first_day_value = res['h'][0]
+        last_day_value = res['h'][-1]
         cumulative_result = last_day_value / first_day_value - 1
         return cumulative_result
 
