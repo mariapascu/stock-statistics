@@ -1,1 +1,3 @@
-# stock-statistics
+# Stock Statistics
+
+![Demo](demo.png)
